@@ -1,10 +1,10 @@
-<%= form_with(model: actor, local: true) do |form| %>
-  <% if actor.errors.any? %>
+<%= form_for(@actor) do |f| %>
+  <% if @actor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(actor.errors.count, "error") %> prohibited this actor from being saved:</h2>
+      <h2><%= pluralize(@actor.errors.count, "error") %> prohibited this actor from being saved:</h2>
 
       <ul>
-      <% actor.errors.full_messages.each do |message| %>
+      <% @actor.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,21 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
-
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
   </div>
-
   <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  </div>
+    <%= f.label :image %><br>
+    <%= f.attachment_field :image %>
 
+    <% if @actor.image_id? %>
+      <%= image_tag attachment_url(@actor, :image, :fill, 100, 100) %>
+
+      <%= f.check_box :remove_image %>
+      <%= f.label :remove_image %>
+    <% end %>
+  </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

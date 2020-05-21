@@ -1,0 +1,2 @@
+# Rename to refile.rb
+Refile.secret_key = 'add-your-refile-key-here--don-t-want-to-make-this-too-complicated'
