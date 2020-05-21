@@ -10,5 +10,6 @@
 #  image_id    :string
 #
 class Film < ApplicationRecord
+  has_many :comments, as: :commentable
   attachment :image
 end

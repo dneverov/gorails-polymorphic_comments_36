@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_145038) do
+ActiveRecord::Schema.define(version: 2020_05_21_181122) do
 
   create_table "actor_films", force: :cascade do |t|
     t.integer "actor_id"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2020_05_21_145038) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commentable_type"
+    t.integer "commentable_id"
+    t.integer "user_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "films", force: :cascade do |t|

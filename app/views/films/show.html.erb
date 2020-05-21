@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @film.title %></h1>
-<%= image_tag attachment_url(@film, :image, :limit, 400, 500) %>
-<%= simple_format @film.description %>
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag attachment_url(@film, :image, :limit, 400, 500) %>
+  </div>
+  <p><%= simple_format @film.description %></p>
 
-<%= link_to 'Edit', edit_film_path(@film) %> |
-<%= link_to 'Back', films_path %>
+  <%= link_to 'Edit', edit_film_path(@film) %> |
+  <%= link_to 'Back', films_path %>
+</div>
+
+<%= render partial: "comments/comments", locals: {commentable: @film} %>
+<%= render partial: "comments/form", locals: {commentable: @film} %>
