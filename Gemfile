@@ -64,3 +64,7 @@ end
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'devise', '~> 4.7', '>= 4.7.1'
+
+gem 'mini_magick'
+gem 'refile', require: 'refile/rails', github: 'refile/refile', branch: 'master'
+gem 'refile-mini_magick', github: 'refile/refile-mini_magick', branch: 'master'
