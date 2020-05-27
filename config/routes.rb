@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :comments, module: :actors
   end
   resources :films do
-    resources :comments, module: :films
+    resource :comments, module: :films
   end
 
   root to: "films#index"

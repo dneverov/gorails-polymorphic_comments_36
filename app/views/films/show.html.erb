@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" class="bg-info"><%= notice %></p>
 
 <h1><%= @film.title %></h1>
 <div class="row">
   <div class="col-md-4">
-    <%= image_tag attachment_url(@film, :image, :limit, 400, 500) if @film.image %>
+    <%= image_tag attachment_url(@film, :image, :limit, 300, 500) if @film.image %>
   </div>
   <p><%= simple_format @film.description %></p>
 
